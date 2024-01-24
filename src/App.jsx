@@ -3,12 +3,23 @@ import { Card } from "flowbite-react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
+import Profile from "./pages/Profile";
+import Users from "./pages/Users";
+import Header from "./components/Header";
 
 function App() {
   const router = createBrowserRouter([
-    { path: "/", element: <HomePage /> },
-    { path: "/signin", element: <SignIn /> },
-    { path: "/Register", element: <SignIn /> },
+    {
+      path: "/",
+      element: <Header />,
+      children: [
+        { path: "/", element: <HomePage /> },
+        { path: "profile", element: <Profile /> },
+        { path: "users", element: <Users /> },
+      ],
+    },
+    { path: "signin", element: <SignIn /> },
+    { path: "Register", element: <SignIn /> },
   ]);
 
   return (

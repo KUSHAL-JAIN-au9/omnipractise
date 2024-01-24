@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .input-primary {
+    @apply border-none w-full !bg-gray-200 text-black !rounded-md;
+  }
+}
